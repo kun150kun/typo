@@ -17,7 +17,11 @@ module NavigationHelpers
       '/'
     when /^the new article page$/
       '/admin/content/new'
-
+    when /^the categories page$/
+      '/admin/categories'
+    when /^the categories edit page for "(.*)"$/
+      id = Category.find(:first, :conditions => {:name => $1}).id
+      "/admin/categories/edit/#{id}"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

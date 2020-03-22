@@ -11,6 +11,15 @@ describe Admin::CategoriesController do
     request.session = { :user => henri.id }
   end
 
+  it "access_category" do
+    get :index
+    assert_response :redirect, :action => 'new'
+    
+    get :new
+    assert_response :success
+    
+  end
+
   it "test_index" do
     get :index
     assert_response :redirect, :action => 'index'
